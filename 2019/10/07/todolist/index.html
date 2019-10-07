@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        快速搭建舒服的开发环境 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/images/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>zaber</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+
+            <!--
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            -->
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <!--
+
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            -->
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#从前端开始"><span class="toc-text">从前端开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化一个前端工程"><span class="toc-text">初始化一个前端工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设计路由"><span class="toc-text">设计路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加数据库"><span class="toc-text">添加数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计后端server"><span class="toc-text">设计后端server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#再回到前端"><span class="toc-text">再回到前端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mock服务"><span class="toc-text">mock服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署测试"><span class="toc-text">部署测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动构建"><span class="toc-text">自动构建</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        快速搭建舒服的开发环境
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2019-10-07 00:00:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>给新手的入门指南，涉及到的技术栈有。</p>
+<ul>
+<li>前端：vue,vue-router,vuex</li>
+<li>后端：eggjs</li>
+<li>数据库：mysql</li>
+<li>工具：docker,docker-compose,travis-ci<a id="more"></a>  
+
+</li>
+</ul>
+<p>用全栈的方式写个todolist<a href="https://github.com/zaberz/todolist-web" target="_blank" rel="noopener">前端-示例代码</a><a href="https://github.com/zaberz/todolist-server" target="_blank" rel="noopener">后端-示例代码</a></p>
+<h2 id="从前端开始"><a href="#从前端开始" class="headerlink" title="从前端开始"></a>从前端开始</h2><h3 id="初始化一个前端工程"><a href="#初始化一个前端工程" class="headerlink" title="初始化一个前端工程"></a>初始化一个前端工程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm i vue-cli -g</span><br><span class="line">vue create todolist-web</span><br><span class="line"># 我一般选手动配置，添加vue-router，vuex，eslint，prettier 配置单独放文件</span><br><span class="line">cd todolist-web &amp;&amp; npm run serve</span><br></pre></td></tr></table></figure>
+
+<h3 id="设计路由"><a href="#设计路由" class="headerlink" title="设计路由"></a>设计路由</h3><p>设想我们的todolist程序有3个功能页</p>
+<ul>
+<li>登录页</li>
+<li>任务展示页</li>
+<li>任务添加页</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const router = new Router(&#123;</span><br><span class="line">  mode: &quot;history&quot;,</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &quot;/&quot;,</span><br><span class="line">      name: &quot;home&quot;,</span><br><span class="line">      component: import(&apos;../views/Home.vue&apos;)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: &quot;/add&quot;,</span><br><span class="line">      name: &quot;add&quot;,</span><br><span class="line">      component: () =&gt; import(&quot;../views/Add.vue&quot;)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: &quot;/login&quot;,</span><br><span class="line">      name: &quot;login&quot;,</span><br><span class="line">      component: () =&gt; import(&quot;../views/Login.vue&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<p>按自己的需求编写好各页面的逻辑</p>
+<h2 id="添加数据库"><a href="#添加数据库" class="headerlink" title="添加数据库"></a>添加数据库</h2><p>数据库选用mysql</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:5.6</span><br><span class="line">docker run -d -p 23306:3306 --name=mysql-server --env=&quot;MYSQL_ROOT_PASSWORD=123456&quot; mysql:5.6</span><br></pre></td></tr></table></figure>
+
+<p>使用docker可以快速在本地跑一个mysql服务。</p>
+<p><img src="/images/data-model.png" alt><br>我用navicat for mysql连上之后新建了todolist数据库，设计2张表，一个user用于储存用户账号密码，一个task用于储存用户任务列表</p>
+<h2 id="设计后端server"><a href="#设计后端server" class="headerlink" title="设计后端server"></a>设计后端server</h2><p>后端使用<a href="https://eggjs.org/" target="_blank" rel="noopener">eggjs</a>。主要解决几个问题</p>
+<ul>
+<li><p>连接数据库</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在eggjs的config.default.js中</span></span><br><span class="line">config = &#123;</span><br><span class="line">    mysql: &#123;</span><br><span class="line">        client: &#123;</span><br><span class="line">            host: <span class="string">'127,0,0,1'</span>,</span><br><span class="line">            port: <span class="string">'23306'</span>,</span><br><span class="line">            user: <span class="string">'root'</span>,</span><br><span class="line">            password: <span class="string">'123456'</span>,</span><br><span class="line">            database: <span class="string">'todolist'</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        app: <span class="literal">true</span>,</span><br><span class="line">        agent: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计路由<br>路由包含一个restful风格的task接口，登录接口和注册接口。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.post(<span class="string">'/login'</span>, controller.user.login)</span><br><span class="line">router.post(<span class="string">'/registry'</span>, controller.user.registry)</span><br><span class="line">router.resources(<span class="string">'task'</span>, <span class="string">'/tasks'</span>, controller.tasks)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用户状态维护<br>常用方案有session和jwt，但是session依赖cookie，为了保持连接无状态，选jwt。使用egg-jwt插件。</p>
+</li>
+</ul>
+<h2 id="再回到前端"><a href="#再回到前端" class="headerlink" title="再回到前端"></a>再回到前端</h2><p>完成后端逻辑代码编写之后，任务又回到前端对接接口了。开发期间，使用vue dev-server里的proxy提供的代理功能，将对/api的请求全都代理到我们的egg服务上。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js</span></span><br><span class="line"><span class="keyword">let</span> apiUrl = process.env.VUE_APP_API_DOMAIN;</span><br><span class="line"><span class="keyword">let</span> apiBasePath = process.env.VUE_APP_API_BASE_PATH;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> proxyObj = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> proxyPath = apiBasePath;</span><br><span class="line"></span><br><span class="line">proxyObj[proxyPath] = &#123;</span><br><span class="line">  target: apiUrl,</span><br><span class="line">  changeOrigin: <span class="literal">true</span>,</span><br><span class="line">  ws: <span class="literal">true</span>,</span><br><span class="line">  pathRewrite: &#123;</span><br><span class="line">    [<span class="string">`^<span class="subst">$&#123;proxyPath&#125;</span>`</span>]: <span class="string">"/"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    open: <span class="literal">true</span>,</span><br><span class="line">    disableHostCheck: <span class="literal">true</span>,</span><br><span class="line">    proxy: proxyObj,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// request 基类</span></span><br><span class="line"><span class="keyword">const</span> axiosInstance = axios.create(&#123;</span><br><span class="line">  baseURL: process.env.VUE_APP_API_BASE_PATH,</span><br><span class="line">  timeout: <span class="number">30000</span>,</span><br><span class="line">  withCredentials: <span class="literal">true</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// .env 文件</span></span><br><span class="line">VUE_APP_API_DOMAIN = <span class="string">'http://127.0.0.1:7002'</span></span><br><span class="line">VUE_APP_API_BASE_PATH = <span class="string">'/api'</span></span><br></pre></td></tr></table></figure>
+
+<p>至此，前后端交互都已经完成。剩下的就是业务代码编写。</p>
+<h2 id="mock服务"><a href="#mock服务" class="headerlink" title="mock服务"></a>mock服务</h2><p>现在每次迭代基本是前后端并行开发的，在前端开发过程中后端不会提供一个稳定的接口环境，这时候就需要一个mock服务器，我们选用easy-mock。<br>首先添加使用mock时的指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// package.json</span><br><span class="line">&#123;</span><br><span class="line">  script: &#123;</span><br><span class="line">    &apos;dev:mock&apos;: &apos;vue-cli-service serve --mode=mock&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>添加mock时的环境变量配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// .env.mock</span><br><span class="line">VUE_APP_API_DOMAIN = &apos;http://127.0.0.1:7300/mock/5d8c539c1e82930021daf94b&apos;</span><br><span class="line">VUE_APP_API_BASE_PATH = &apos;/api&apos;</span><br></pre></td></tr></table></figure>
+
+<p>到分配的mock服务器中启动easy-mock，先新建docker-composer.yml文件，然后执行docker-compose up</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// docker-compose.yml</span><br><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  mongodb:</span><br><span class="line">    image: mongo:3.4</span><br><span class="line">#    volumes:</span><br><span class="line">    networks:</span><br><span class="line">      - easy-mock</span><br><span class="line">    restart: always</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis:4.0.6</span><br><span class="line">    command: redis-server --appendonly yes</span><br><span class="line">#    volumes:</span><br><span class="line">    networks:</span><br><span class="line">      - easy-mock</span><br><span class="line">    restart: always</span><br><span class="line"></span><br><span class="line">  web:</span><br><span class="line">    image: easymock/easymock:1.6.0</span><br><span class="line">    command: /bin/bash -c &quot;npm start&quot;</span><br><span class="line">    ports:</span><br><span class="line">      - 7300:7300</span><br><span class="line">#    volumes:</span><br><span class="line">    networks:</span><br><span class="line">      - easy-mock</span><br><span class="line">    restart: always</span><br><span class="line">networks:</span><br><span class="line">  easy-mock:</span><br></pre></td></tr></table></figure>
+
+<p>开发时，就可以用dev-server的代理，代理请求到mock服务上，无缝完成开发。</p>
+<h2 id="部署测试"><a href="#部署测试" class="headerlink" title="部署测试"></a>部署测试</h2><ul>
+<li><p>前端镜像制作</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// build/Dockerfile</span><br><span class="line">FROM nginx</span><br><span class="line">ADD  ./dist /usr/share/nginx/html/dist</span><br><span class="line">ADD ./build/nginx.conf /etc/nginx/nginx.conf</span><br><span class="line">EXPOSE 80</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// nginx.conf 关键配置</span><br><span class="line">root  /usr/share/nginx/html/dist;</span><br><span class="line">location / &#123;</span><br><span class="line">    try_files $uri $uri/ @router;</span><br><span class="line">    index index.html;</span><br><span class="line">&#125;</span><br><span class="line">location /api/ &#123;</span><br><span class="line">    proxy_read_timeout 600s;</span><br><span class="line">    proxy_ignore_client_abort  on;</span><br><span class="line">    # proxy_pass http://192.168.1.70:7001/;</span><br><span class="line">    proxy_pass http://server:8080/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  首先是支持vue-router 的history模式，然后是把所有的/api请求代理到egg服务上,然后到根目录执行以下命令制作一个名为todolist-web的镜像，</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t todolist-web -f .\build\Dockerfile .</span><br></pre></td></tr></table></figure>
+
+<p>  如果镜像制作很慢可以添加.dockerignore文件忽略node_module模块</p>
+</li>
+<li><p>egg服务镜像制作</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// Dockerfile</span><br><span class="line">FROM node:8.11.3-alpine</span><br><span class="line"></span><br><span class="line">ENV TIME_ZONE=Asia/Shanghai</span><br><span class="line"></span><br><span class="line">RUN \</span><br><span class="line">  mkdir -p /usr/src/app \</span><br><span class="line">  &amp;&amp; apk add --no-cache tzdata \</span><br><span class="line">  &amp;&amp; echo &quot;$&#123;TIME_ZONE&#125;&quot; &gt; /etc/timezone \</span><br><span class="line">  &amp;&amp; ln -sf /usr/share/zoneinfo/$&#123;TIME_ZONE&#125; /etc/localtime</span><br><span class="line"></span><br><span class="line">WORKDIR /usr/src/app</span><br><span class="line"></span><br><span class="line">COPY package.json /usr/src/app/</span><br><span class="line"></span><br><span class="line">#RUN npm i</span><br><span class="line"></span><br><span class="line">RUN npm i --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">COPY . /usr/src/app</span><br><span class="line"></span><br><span class="line">EXPOSE 7001</span><br><span class="line"></span><br><span class="line">CMD npm run start</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t todolist-server -f .\Dockerfile .</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>至此，前端和服务端镜像都已经准备好了。我们用docker-compose启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  webapp:</span><br><span class="line">    image: todolist-web</span><br><span class="line">    depends_on:</span><br><span class="line">      - server</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;9000:9000&quot;</span><br><span class="line">  server:</span><br><span class="line">    image: todolist-server</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;7001:7001&quot;</span><br><span class="line">    depends_on:</span><br><span class="line">      - db</span><br><span class="line">  db:</span><br><span class="line">    image: mysql:5.6</span><br><span class="line">    volumes:</span><br><span class="line">#      - mysql_data:/var/lib/mysql</span><br><span class="line">      - /var/lib/mysql</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;3306:3306&quot;</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">      MYSQL_ROOT_PASSWORD: 123456</span><br><span class="line">      MYSQL_DATABASE: todolist</span><br><span class="line">      MYSQL_USER: root</span><br><span class="line">      MYSQL_PASSWORD: 123456</span><br></pre></td></tr></table></figure>
+
+<p>浏览器打开localhost:9000,就能看到完整的todolist应用了。每个服务都对应了外部的映射端口，在正式环境可以去掉，只暴露todolist-web的，供外部访问。</p>
+<h2 id="自动构建"><a href="#自动构建" class="headerlink" title="自动构建"></a>自动构建</h2><p>注意到web应用是添加dist文件到容器中，需要预先构建前端代码，可以使用jenkins或者travis-ci，在代码提交后构建代码，制作镜像并推送到镜像服务器。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
