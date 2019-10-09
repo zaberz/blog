@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        练手demos - undefined
         
     </title>
 
@@ -68,7 +68,7 @@
                 </a>
             </li>
             -->
-            <li  class=active >
+            <li >
                 <a href="/blog/archives">
                     <i class="iconfont icon-guidang2"></i>
                     <span>ARCHIVES</span>
@@ -86,6 +86,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#同一首歌"><span class="toc-text">同一首歌</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿bilibili视频人像弹幕遮罩"><span class="toc-text">仿bilibili视频人像弹幕遮罩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webrtc创建的视频聊天应用"><span class="toc-text">webrtc创建的视频聊天应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node端的tensorflow"><span class="toc-text">node端的tensorflow</span></a></li></ol>
+</div>
     
 </div>
 
@@ -113,80 +117,36 @@
         
 
 
-<!-- 归档列表 -->
+<div class="post-container">
+    <div class="post-title">
+        练手demos
+    </div>
 
-<div class="archives-container">
+    <div class="post-meta">
+        <span class="attr">Post：<span>2019-10-08 00:00:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="同一首歌"><a href="#同一首歌" class="headerlink" title="同一首歌"></a>同一首歌</h3><p><a href="www.ruaaaa.com:2333" target="_blank" rel="noopener">线上地址</a></p>
+<p>17年时写的，许久没维护，近期发现获取歌曲URL的方法失效了，修改了一下推上线继续用。使用socketio做歌曲同步，可以和异地的朋友同时听同一首歌。</p>
+<h3 id="仿bilibili视频人像弹幕遮罩"><a href="#仿bilibili视频人像弹幕遮罩" class="headerlink" title="仿bilibili视频人像弹幕遮罩"></a>仿bilibili视频人像弹幕遮罩</h3><p><a href="https://zaberz.github.io/bodypix/" target="_blank" rel="noopener">线上地址</a><br>资源加载有点慢，用了tensorflowjs和一个已经训练好的人体识别模型。简单测试了一下在浏览器中做识别的效率，</p>
+<h3 id="webrtc创建的视频聊天应用"><a href="#webrtc创建的视频聊天应用" class="headerlink" title="webrtc创建的视频聊天应用"></a>webrtc创建的视频聊天应用</h3><p><a href="https://github.com/zaberz/webrtc-chat" target="_blank" rel="noopener">github</a><br>踩过的坑：在创建点对点连接的时候需要用先由服务器转发icecandidate信息，我用了socketio，等到链接建立成功之后才断开。<br>在建立连接之前就要指定要发送的内容，在连接建立成功之后不能修改。<br>在4G网络下基本上不能直连，需要有个stun服务器做转发</p>
+<h3 id="node端的tensorflow"><a href="#node端的tensorflow" class="headerlink" title="node端的tensorflow"></a>node端的tensorflow</h3><p><a href="https://github.com/zaberz/gomoku-js" target="_blank" rel="noopener">github</a><br>在node端使用tensorflow训练一个五子棋AI</p>
 
-<div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-    <ul>
         
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>10-09</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/blog/2019/10/09/nginx/">
-                        <span>
-                            前端缓存和nginx配置实验
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>10-08</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/blog/2019/10/08/demos/">
-                        <span>
-                            练手demos
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>10-07</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/blog/2019/10/07/todolist/">
-                        <span>
-                            快速搭建舒服的开发环境
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
-        <!-- <li class="listing-item">
-        <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-        <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-        </li> -->
-        <li >
-            <span>10-06</span>
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/blog/2019/10/06/guide/">
-                        <span>
-                            前端组长这一年
-                        </span>
-            </a>
-            <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </li>
-        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
 
-    </ul>
-</div>
+        <div id="lv-container">
+        </div>
 
+    </div>
 </div>
 
     </div>
@@ -227,7 +187,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = ""
     window.hexo_root = "/blog/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/blog/js/index.js"></script>

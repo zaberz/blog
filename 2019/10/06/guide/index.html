@@ -149,7 +149,7 @@
 <li>最开始在script 中添加了dev:mock 指令，在开发时本地起了个mock-server用来模拟后端数据。后来觉得每次在代码里新增接口对应mock数据过于麻烦，于是另外起了一个easy-mock服务；开发时使用.env.mock代理环境。</li>
 </ul>
 <h2 id="生产环境"><a href="#生产环境" class="headerlink" title="生产环境"></a>生产环境</h2><ul>
-<li>生产环境使用K8S集群部署。web项目1个service，2个deployment。项目发布时打包对应版本镜像。镜像dockerfile：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM imageserver/nginx:1.14.2</span><br><span class="line">ADD  dist /usr/share/nginx/html/dist</span><br><span class="line">ADD lib/nginx.conf /etc/nginx/sites-enabled/site.conf</span><br><span class="line">EXPOSE 80</span><br></pre></td></tr></table></figure>
+<li>生产环境使用K8S集群部署。web项目1个service，2个deployment。项目发布时打包对应版本镜像。镜像dockerfile：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM imageserver/nginx:1.14.2</span><br><span class="line">ADD  dist /usr/share/nginx/html/dist</span><br><span class="line">ADD lib/nginx.conf /etc/nginx/conf.d/site.conf</span><br><span class="line">EXPOSE 80</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
