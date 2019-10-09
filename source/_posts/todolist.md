@@ -61,7 +61,7 @@ docker run -d -p 23306:3306 --name=mysql-server --env="MYSQL_ROOT_PASSWORD=12345
 ```
 使用docker可以快速在本地跑一个mysql服务。
 
-![](/images/data-model.png)
+![](/blog/images/data-model.png)
 我用navicat for mysql连上之后新建了todolist数据库，设计2张表，一个user用于储存用户账号密码，一个task用于储存用户任务列表
 
 ## 设计后端server
@@ -201,6 +201,9 @@ networks:
     location / {
         try_files $uri $uri/ @router;
         index index.html;
+    }
+    location @router {
+        rewrite ^.*$ /index.html last;
     }
     location /api/ {
         proxy_read_timeout 600s;

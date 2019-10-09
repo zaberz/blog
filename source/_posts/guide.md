@@ -34,7 +34,7 @@ date: 2019-10-06
 ```code
 FROM imageserver/nginx:1.14.2
 ADD  dist /usr/share/nginx/html/dist
-ADD lib/nginx.conf /etc/nginx/sites-enabled/site.conf
+ADD lib/nginx.conf /etc/nginx/conf.d/site.conf
 EXPOSE 80
 ```
 在nginx.conf中定好代理规则和静态资源缓存策略
