@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+
+    <title>
+        
+        graphql 一日游 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/aircloud.css">
+    <link rel="stylesheet" href="/blog/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/blog/images/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>zaber</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/blog/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+
+            <!--
+            <li >
+                <a href="/blog/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            -->
+            <li >
+                <a href="/blog/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <!--
+
+            <li >
+                <a href="/blog/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            -->
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#graphql"><span class="toc-text">graphql</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是什么？"><span class="toc-text">是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么？"><span class="toc-text">为什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#请求你所要的数据不多不少"><span class="toc-text">请求你所要的数据不多不少</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取多个资源只用一个请求"><span class="toc-text">获取多个资源只用一个请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#描述所有的可能类型系统"><span class="toc-text">描述所有的可能类型系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#API-演进无需划分版本"><span class="toc-text">API 演进无需划分版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用你现有的数据和代码"><span class="toc-text">使用你现有的数据和代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#怎么用？"><span class="toc-text">怎么用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一点思考"><span class="toc-text">一点思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        graphql 一日游
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2019-09-30 00:00:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="graphql"><a href="#graphql" class="headerlink" title="graphql"></a>graphql</h1><h2 id="是什么？"><a href="#是什么？" class="headerlink" title="是什么？"></a>是什么？</h2><p>GraphQL 既是一种用于 API 的查询语言也是一个满足你数据查询的运行时。 GraphQL 对你的 API 中的数据提供了一套易于理解的完整描述，使得客户端能够准确地获得它需要的数据，而且没有任何冗余，也让 API 更容易地随着时间推移而演进，还能用于构建强大的开发者工具。</p>
+<h2 id="为什么？"><a href="#为什么？" class="headerlink" title="为什么？"></a>为什么？</h2><h3 id="请求你所要的数据不多不少"><a href="#请求你所要的数据不多不少" class="headerlink" title="请求你所要的数据不多不少"></a>请求你所要的数据不多不少</h3><p>向你的 API 发出一个 GraphQL 请求就能准确获得你想要的数据，不多不少。 GraphQL 查询总是返回可预测的结果。使用 GraphQL 的应用可以工作得又快又稳，因为控制数据的是应用，而不是服务器。</p>
+<h3 id="获取多个资源只用一个请求"><a href="#获取多个资源只用一个请求" class="headerlink" title="获取多个资源只用一个请求"></a>获取多个资源只用一个请求</h3><p>GraphQL 查询不仅能够获得资源的属性，还能沿着资源间引用进一步查询。典型的 REST API 请求多个资源时得载入多个 URL，而 GraphQL 可以通过一次请求就获取你应用所需的所有数据。这样一来，即使是比较慢的移动网络连接下，使用 GraphQL 的应用也能表现得足够迅速。</p>
+<h3 id="描述所有的可能类型系统"><a href="#描述所有的可能类型系统" class="headerlink" title="描述所有的可能类型系统"></a>描述所有的可能类型系统</h3><p>GraphQL API 基于类型和字段的方式进行组织，而非入口端点。你可以通过一个单一入口端点得到你所有的数据能力。GraphQL 使用类型来保证应用只请求可能的数据，还提供了清晰的辅助性错误信息。应用可以使用类型，而避免编写手动解析代码。</p>
+<h3 id="API-演进无需划分版本"><a href="#API-演进无需划分版本" class="headerlink" title="API 演进无需划分版本"></a>API 演进无需划分版本</h3><p>给你的 GraphQL API 添加字段和类型而无需影响现有查询。老旧的字段可以废弃，从工具中隐藏。通过使用单一演进版本，GraphQL API 使得应用始终能够使用新的特性，并鼓励使用更加简洁、更好维护的服务端代码。</p>
+<h3 id="使用你现有的数据和代码"><a href="#使用你现有的数据和代码" class="headerlink" title="使用你现有的数据和代码"></a>使用你现有的数据和代码</h3><p>GraphQL 让你的整个应用共享一套 API，而不用被限制于特定存储引擎。GraphQL 引擎已经有多种语言实现，通过 GraphQL API 能够更好利用你的现有数据和代码。你只需要为类型系统的字段编写函数，GraphQL 就能通过优化并发的方式来调用它们。</p>
+<h2 id="怎么用？"><a href="#怎么用？" class="headerlink" title="怎么用？"></a>怎么用？</h2><p>首先理解一些基本概念：<br>Schema 和类型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// schame.gql</span><br><span class="line">type User&#123;</span><br><span class="line">    account: String</span><br><span class="line">    name: String</span><br><span class="line">&#125;</span><br><span class="line">type todolist: &#123;</span><br><span class="line">    time: String!</span><br><span class="line">    content: String!</span><br><span class="line">&#125;</span><br><span class="line">type Query&#123;</span><br><span class="line">    userinfo(account: String): User </span><br><span class="line">    todolists: [todolist]</span><br><span class="line">&#125;</span><br><span class="line">type Mutation &#123;</span><br><span class="line">    registry(account:String, name:String): User</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以把他理解为一个供前端查询的入口文件，里面包含了类型系统，查询函数和变更函数。服务端收到请求后调用对应resolver函数，然后返回对应type数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">query &#123;</span><br><span class="line">  userinfo &#123;</span><br><span class="line">    name</span><br><span class="line">  &#125;</span><br><span class="line">  todolists&#123;</span><br><span class="line">    content</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>前端调用时，可以通过查询gql，获取对应数据，如上，只发一次请求能同时获取userinfo和todolist的数据。<br>在实现上，其实就是结构化query数据，然后使用fetch/xmlhttprequest发送。服务端接收到之后再解构出对应的请求操作，返回数据。</p>
+<h2 id="一点思考"><a href="#一点思考" class="headerlink" title="一点思考"></a>一点思考</h2><ul>
+<li><p>在使用apollo-react时觉得他们Query、Mutation组件真好用，自带loading和error处理。打算在普通接口项目里结合Redux试一下。</p>
+</li>
+<li><p>resolve函数中可以从多个数据源获取数据，可以是MySQL，redis，或者其他第三方api，提供了一定的便利。可以用作一个统一的接口集合，打造一个多App的中台服务。</p>
+</li>
+<li><p>接口迭代升级方便，可快速为type增删字段。接口测试时同理，但暂时没有找到相关的成熟工具。</p>
+</li>
+<li><p>关于一次请求所有所需数据和只获取所需数据，在网络层面1、节省了请求数量；2、缩小了所发送数据包的体积。但是缺点依然很明显</p>
+<ul>
+<li>resolve函数必须获取全部所需数据才能供查询筛选，比如获取用户信息，也许前端只要id&amp;username，但是后端的查询得select * from user；有时也许还得join多张表，这点就没有定制接口来得高效</li>
+<li>如果一次请求中包含了很耗时的操作，比如获取用户信息同时调第三方接口获取todolist详细数据。之前我们拆分2个请求可以做到先把用户部分渲染出来，然后列表数据慢慢loading。graphql想做到这种效果依然要创建两次请求。在没有形成调用规范之前，调用方很可能就忽略这部分耗时接口，导致页面渲染慢。</li>
+<li>随着项目逐渐庞大，入口文件拆分也是问题。如果作为一个业务中台，多业务的接口权限要如何限制？</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>graphql很好，让前端支配服务端又迈了一步，但是就像最早我们抛弃服务端渲染template，转为前后端分离，现在又开始做ssr，值不值得用还等根据业务仔细考量。g</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/blog/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/blog/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
