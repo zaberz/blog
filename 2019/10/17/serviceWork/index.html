@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+
+    <title>
+        
+        service worker一日游 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/aircloud.css">
+    <link rel="stylesheet" href="/blog/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/blog/images/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>zaber</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/blog/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+
+            <!--
+            <li >
+                <a href="/blog/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            -->
+            <li >
+                <a href="/blog/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <!--
+
+            <li >
+                <a href="/blog/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            -->
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#service-worker"><span class="toc-text">service worker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#与web-worker的异同："><span class="toc-text">与web worker的异同：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#支持的事件："><span class="toc-text">支持的事件：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要功能"><span class="toc-text">主要功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上手"><span class="toc-text">上手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思考"><span class="toc-text">思考</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        service worker一日游
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2019-10-17 00:00:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="service-worker"><a href="#service-worker" class="headerlink" title="service worker"></a>service worker</h2><h3 id="与web-worker的异同："><a href="#与web-worker的异同：" class="headerlink" title="与web worker的异同："></a>与web worker的异同：</h3><ul>
+<li><p>Service Worker 工作在 worker context 中，是没有访问 DOM 的权限的，所以我们无法在 Service Worker 中获取 DOM 节点，也无法在其中操作 DOM 元素；</p>
+</li>
+<li><p>我们可以通过 postMessage 接口把数据传递给其他 JS 文件；</p>
+</li>
+<li><p>Service Worker 中运行的代码不会被阻塞，也不会阻塞其他页面的 JS 文件中的代码；</p>
+</li>
+<li><p>不同的地方在于，Service Worker 是一个浏览器中的进程而不是浏览器内核下的线程，因此它在被注册安装之后，能够被在多个页面中使用，也不会因为页面的关闭而被销毁。因此，Service Worker 很适合被用与多个页面需要使用的复杂数据的计算——购买一次，全家“收益”。</p>
+</li>
+</ul>
+<h3 id="支持的事件："><a href="#支持的事件：" class="headerlink" title="支持的事件："></a>支持的事件：</h3><p>install,activate,message,fetch,sync,push</p>
+<h3 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h3><ul>
+<li>离线缓存</li>
+<li>服务端推送消息</li>
+<li>代理请求&amp;请求劫持</li>
+<li>跨页面通信</li>
+</ul>
+<h3 id="上手"><a href="#上手" class="headerlink" title="上手"></a>上手</h3><p>关于离线缓存<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API/Using_Service_Workers" target="_blank" rel="noopener">MDN</a><br>和消息通知<a href="https://developers.google.com/web/fundamentals/codelabs/push-notifications/?hl=zh-cn#top_of_page" target="_blank" rel="noopener">google develop</a><br>这两篇里都已经安排的明明白白了。</p>
+<p>唯一要提的是推送服务依赖一个FCM服务，而这个服务是被墙的，所以国内基本看不到推送消息。<a href="https://firebase.google.com/docs/cloud-messaging/?hl=zh-cn" target="_blank" rel="noopener">具体文档</a></p>
+<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><ul>
+<li><p>在使用离线缓存时，甚至可以缓存入口html。而不是像配置了etag或者last-modified 一样，返回304。这就极大增强了应用离线访问的能力，如果站点是个纯静态的，那体验可以做到相当好。但是都9102年了，除了博客、文档，还存在纯静态的网站吗？<br>我们的痛点永远是首屏加载不够快。现在的spa应用基本上是先载好JS资源然后再发起异步请求，获取首屏数据渲染。所以才有ssr来解决下载文件，执行脚本到获取数据这段空白时间。<br>通过离线缓存，可以快速从本地打开页面，因为全是from appcache，不用同服务器交互，再载入框架shell页面之后，可以增加各种骨架屏、占位图来增强loading时的体验。</p>
+</li>
+<li><p>关于cache api，cache内容要求我们指定cache文件名，或者通过拦截fetch请求然后cache.add(response.clone())加入到AppCache中。spa应用大部分文件都是带hash的，所以要提前生成一份文件列表，需要做的工作有1、构建工程，生成dist文件。2、写脚本获取生成的js、css文件列表（或许还有image），更新service worker文件。使用请求拦截的情况需要判断请求是否未api请求，否则缓存了个接请求就大事不好了（虽然cache会忽略post等请求）。</p>
+</li>
+<li><p>如何做到更快？类似微博，在下次唤醒时保留的还是之前看的feed流内容。所以web应用也可以把状态管理里的内容存到indexdb里，等待下一次程序唤醒时找个合理的实际，再把store载入回来，因为内容都是cache过的，所以可以立马打开。</p>
+</li>
+<li><p>service worker的优势只有请求代理和缓存吗？前面我们说到他与web worker的区别时提到他是一个进程。他提供了一个clients对象可以向所有打开的窗口postMessage。在一些特殊场景下：比如我现在正在做的在线答题，一张页面记录了答题进度，一张记录了答题详情，测试要求我们答题时另一张的页面要一起更新。放以前我就上socket或者根据visibilitychange重新获取数据了，<br>现在可以使用service worker向所有页面广播答题进度，对应界面收到消息之后再更新。</p>
+</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/blog/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/blog/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+
+    <title>
+        
+        npm install迷思 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/aircloud.css">
+    <link rel="stylesheet" href="/blog/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/blog/images/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>zaber</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/blog/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+
+            <!--
+            <li >
+                <a href="/blog/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            -->
+            <li >
+                <a href="/blog/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <!--
+
+            <li >
+                <a href="/blog/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            -->
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#起因"><span class="toc-text">起因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#debug"><span class="toc-text">debug</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        npm install迷思
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2019-11-01 00:00:00</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h3><p>看公司UI组件库代码的时候突然看到了一份格式混乱，还带有console.log()的文件，察觉到gitHooks失效了。</p>
+<h3 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h3><p>首先项目的gitHooks用的是husky工具集成的。查看.git/hooks/目录，里面的钩子文件都是.simple后缀的。简单粗暴的把node_modules文件夹删除之后重新install一遍。<br>回来了，一切都回来了，顿感舒心。<br>好奇心驱使我看看有没有不删node_modules就能修复的办法，于是打开了github:<a href="https://github.com/typicode/husky" target="_blank" rel="noopener">husky</a>。<br>查看package.json：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">script: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;npm run lint &amp;&amp; jest&quot;,</span><br><span class="line">    &quot;_install&quot;: &quot;node husky install&quot;,</span><br><span class="line">    &quot;preuninstall&quot;: &quot;node husky uninstall&quot;,</span><br><span class="line">    &quot;devinstall&quot;: &quot;npm run build &amp;&amp; cross-env HUSKY_DEBUG=1 npm run _install -- node_modules/husky &amp;&amp; node scripts/dev-fix-path&quot;,</span><br><span class="line">    &quot;devuninstall&quot;: &quot;npm run build &amp;&amp; cross-env HUSKY_DEBUG=1 npm run preuninstall -- node_modules/husky&quot;,</span><br><span class="line">    &quot;build&quot;: &quot;del-cli lib &amp;&amp; tsc&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;jest -u &amp;&amp; git add -A src/installer/__tests__/__snapshots__&quot;,</span><br><span class="line">    &quot;postversion&quot;: &quot;git push &amp;&amp; git push --tags&quot;,</span><br><span class="line">    &quot;prepublishOnly&quot;: &quot;npm run test &amp;&amp; npm run build &amp;&amp; pinst --enable &amp;&amp; pkg-ok&quot;,</span><br><span class="line">    &quot;postpublish&quot;: &quot;pinst --disable&quot;,</span><br><span class="line">    &quot;lint&quot;: &quot;eslint . --ext .js,.ts --ignore-path .gitignore&quot;,</span><br><span class="line">    &quot;fix&quot;: &quot;npm run lint -- --fix&quot;,</span><br><span class="line">    &quot;doc&quot;: &quot;markdown-toc -i README.md&quot;,</span><br><span class="line">    &quot;_postinstall&quot;: &quot;opencollective-postinstall || exit 0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>补充了一下npm的小知识：</p>
+<blockquote>
+<p>npm 默认提供下面这些钩子<br>prepublish，postpublish<br>preinstall，postinstall<br>preuninstall，postuninstall<br>preversion，postversion<br>pretest，posttest<br>prestop，poststop<br>prestart，poststart<br>prerestart，postrestart  </p>
+</blockquote>
+<p>就是可以在安装依赖时执行自己的脚本咯？（隐隐感到好像会出现安全问题。）</p>
+<p>安全问题先放一边，在husky的script里面并没有看到preinstall，postinstall 的指令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> npm i husky</span><br><span class="line"></span><br><span class="line">&gt; husky@3.0.9 install C:\person\<span class="built_in">test</span>\node_modules\husky</span><br><span class="line">&gt; node husky install</span><br><span class="line"></span><br><span class="line">husky &gt; Setting up git hooks</span><br><span class="line">Command failed: git rev-parse --show-toplevel --git-common-dir</span><br><span class="line">fatal: not a git repository (or any of the parent directories): .git</span><br><span class="line">husky &gt; Failed to install</span><br><span class="line"></span><br><span class="line">&gt; husky@3.0.9 postinstall C:\person\<span class="built_in">test</span>\node_modules\husky</span><br><span class="line">&gt; opencollective-postinstall || <span class="built_in">exit</span> 0</span><br><span class="line"></span><br><span class="line">Thank you <span class="keyword">for</span> using husky!</span><br><span class="line">If you rely on this package, please consider supporting our open collective:</span><br><span class="line">&gt; https://opencollective.com/husky/donate</span><br><span class="line"></span><br><span class="line">npm WARN <span class="built_in">test</span>@1.0.0 No description</span><br><span class="line">npm WARN <span class="built_in">test</span>@1.0.0 No repository field.</span><br><span class="line"></span><br><span class="line">+ husky@3.0.9</span><br><span class="line">added 59 packages from 30 contributors, removed 190 packages and audited 92 packages <span class="keyword">in</span> 34.009s</span><br><span class="line">found 0 vulnerabilities</span><br></pre></td></tr></table></figure>
+
+<p>在安装时又有执行<code>node husky install</code>, <code>opencollective-postinstall || exit 0</code>两条对应_install 和_postinstall指令。<br>难道npm新增了_install 钩子？？？搜了一遍npm文档也没有找到。</p>
+<p>最终在<a href="https://stackoverflow.com/questions/53193055/how-are-devinstall-and-devuninstall-scripts-being-used" target="_blank" rel="noopener">这里</a>找到了答案。<br>在发布的时候会把_install 变为install！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;prepublishOnly&quot;: &quot;npm run test &amp;&amp; npm run build &amp;&amp; pinst --enable &amp;&amp; pkg-ok&quot;,</span><br></pre></td></tr></table></figure>
+
+<p>注意<code>pinst --enable</code>,查npmjs.com：</p>
+<blockquote>
+<p>pinst lets you have postinstall hook that runs only in development 🍺<br>pinst also supports install alias.</p>
+</blockquote>
+<p>至此，debug算告一段落。但是pinst到底有什么用，适用什么场景？？？难道他要困扰我整个程序员生涯吗。</p>
+<p>看了尤大的<a href="https://github.com/yyx990803/yorkie" target="_blank" rel="noopener">yorkie</a>。<br>package 里</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;jest&quot;,</span><br><span class="line">    &quot;format&quot;: &quot;prettier --single-quote --no-semi --write **/*.js&quot;,</span><br><span class="line">    &quot;install&quot;: &quot;node bin/install.js&quot;,</span><br><span class="line">    &quot;uninstall&quot;: &quot;node bin/uninstall.js&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>啊~舒服了。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/blog/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/blog/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
