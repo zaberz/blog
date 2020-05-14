@@ -180,7 +180,7 @@
 <p><img src="/blog/images/gzip/gzip12.png" alt></p>
 <p><img src="/blog/images/gzip/gzip13.png" alt></p>
 <p>用技术文章的标题来说就是：网站打开速度提升了90%！</p>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>拆分的js文件有点多，会影响加载速度，后期可以根据实际需求合并一些node_modules里的依赖文件，<br>比如 vue&amp;vue-router&amp;vuex可以合并为一份vue-all 的commonChunk文件，具体做法在<a href="https://webpack.js.org/plugins/split-chunks-plugin/" target="_blank" rel="noopener">split-chunks-plugin</a><br>文档</p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>拆分的js文件有点多，会影响加载速度，后期可以根据实际需求合并一些node_modules里的依赖文件，<br>比如 vue&amp;vue-router&amp;vuex可以合并为一份vue-all 的commonChunk文件，具体做法在<a href="https://webpack.js.org/plugins/split-chunks-plugin/" target="_blank" rel="noopener">split-chunks-plugin</a>文档<br><a href="https://github.com/webpack-contrib/webpack-bundle-analyzer" target="_blank" rel="noopener">webpack-bundle-analyzer</a> 替我们提供了一个可视化的 dashboard，可以很直观的发现哪些第三方包或者代码文件占用的大小。</p>
 
         
         <br />
