@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app"></div>
+
+
+<script>
+    function main() {
+      let i = 0
+      let list = []
+      while (i< 1000) {
+        list.push({
+          content: `${i}-内容`
+        })
+        i++
+      }
+
+
+      let elms = list.map(item=> {
+        return createListElement(item)
+      })
+
+      let fragment = document.createDocumentFragment();
+      elms.forEach(elm=> {
+        fragment.appendChild(elm)
+      })
+      document.getElementById('app').appendChild(fragment)
+    }
+
+    function createListElement(item) {
+      let elm = document.createElement('div');
+      elm.innerText = item.content
+      return elm
+    }
+
+    main()
+</script>
+</body>
+</html>
