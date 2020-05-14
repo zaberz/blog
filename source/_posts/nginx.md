@@ -94,26 +94,28 @@ docker run -v /path/to/your/html:/usr/share/nginx/html \
 ![](/blog/images/nginx/nginx-2.png)
 并且执行 `docker logs -f nginx-test` 能发现每次服务器都收到了请求日志。
 
-可见没有设置缓存header的情况下，浏览器还真是一点缓存效果都没有呢！
+可见没有设置缓存header的情况下，浏览器还真是一点缓存效果都没有！
 
 ### 接下来我们添加一些强缓存的配置
 ```
 server {
-    listen       10000;
-    server_name  localhost;
-    index   index.html;
-    root  /usr/share/nginx/html;
-    location / {
-        etag off;
-        expires 30s;
-        add_header Last-Modified  '';
-        index index.html;
-    }
-    location ~ \.(gif|jpg|jpeg|png|bmp|ico|html)$ {
-        etag off;
-        expires 30s;
-        add_header Last-Modified  '';
-    }
+    listen       10001;
+          server_name  localhost;
+          index   index.html;
+          root  /usr/share/nginx/html;
+    
+          limit_rate 50k; #限制速度50K
+    
+          etag off; # 关闭协商缓存
+          add_header Last-Modified  ''; # 关闭强缓存
+    
+          expires 30s;
+    
+          location / {
+              index index.html;
+          }
+          location ~ \.(gif|jpg|jpeg|png|bmp|ico)$ {
+          }
 }
 ```
 执行`docker restart nginx-text`;刷新页面发现：
@@ -129,19 +131,24 @@ server {
 ```
 server {
     listen       10000;
-    server_name  localhost;
-    index   index.html;
-    root  /usr/share/nginx/html;
-    location / {
-        etag off;
-        index index.html;
-    }
-    location ~ \.(gif|jpg|jpeg|png|bmp|ico)$ {
-        etag off;
+          server_name  localhost;
+          index   index.html;
+          root  /usr/share/nginx/html;
+    
+          limit_rate 50k; #限制速度50K
+    
+          etag off; # 关闭协商缓存
+    
+          expires 10s;
+    
+          location / {
+              index index.html;
+          }
+          location ~ \.(gif|jpg|jpeg|png|bmp|ico)$ {
     }
 }
 ```
-`docker restart nginx-text`之后刷新几次发现
+`docker restart nginx-test`之后刷新几次发现
 
 ![](/blog/images/nginx/nginx-5.png)
 ![](/blog/images/nginx/nginx-6.png)
@@ -161,14 +168,17 @@ server {
     server_name  localhost;
     index   index.html;
     root  /usr/share/nginx/html;
+        expired 30s;
+
     location / {
         index index.html;
-        expired 30s;
     }
     location ~ \.(gif|jpg|jpeg|png|bmp|ico)$ {
-        expired 30s;
     }
 }
 ```
 
 刷新时，文档304，资源200 from cache。30秒后强缓存失效，文档仍然304，资源也变为304，之后再变为200.
+
+### 缓存的升级方案：
+service worker + caches api;

@@ -166,5 +166,5 @@ limit_rate 100k; #限制速度50K
 ### 后记
 
 拆分的js文件有点多，会影响加载速度，后期可以根据实际需求合并一些node_modules里的依赖文件，
-比如 vue&vue-router&vuex可以合并为一份vue-all 的commonChunk文件，具体做法在[split-chunks-plugin](https://webpack.js.org/plugins/split-chunks-plugin/)
-文档
+比如 vue&vue-router&vuex可以合并为一份vue-all 的commonChunk文件，具体做法在[split-chunks-plugin](https://webpack.js.org/plugins/split-chunks-plugin/)文档
+[webpack-bundle-analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer) 替我们提供了一个可视化的 dashboard，可以很直观的发现哪些第三方包或者代码文件占用的大小。
