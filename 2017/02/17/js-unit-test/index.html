@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+
+    <title>
+        
+        前端工程单元测试和功能测试 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/aircloud.css">
+    <link rel="stylesheet" href="/blog/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/blog/images/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>zaber</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/blog/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+
+            <!--
+            <li >
+                <a href="/blog/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            -->
+            <li >
+                <a href="/blog/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <!--
+
+            <li >
+                <a href="/blog/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            -->
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-应用越来越复杂，意味着更可能出错。测试是提高代码质量、降低错误的最好方法之一。"><span class="toc-text">Web 应用越来越复杂，意味着更可能出错。测试是提高代码质量、降低错误的最好方法之一。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试的类型"><span class="toc-text">测试的类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以测试为导向的开发模式"><span class="toc-text">以测试为导向的开发模式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mocha"><span class="toc-text">mocha</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#动手"><span class="toc-text">动手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mocha-命令行参数"><span class="toc-text">mocha 命令行参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6"><span class="toc-text">ES6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试用例的钩子"><span class="toc-text">测试用例的钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器测试"><span class="toc-text">浏览器测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成规格文件"><span class="toc-text">生成规格文件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nightmare"><span class="toc-text">Nightmare</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#动手-1"><span class="toc-text">动手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#结合mocha"><span class="toc-text">结合mocha</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nightwatch"><span class="toc-text">nightwatch</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#动手-2"><span class="toc-text">动手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置文件：nighewatch-conf-js-或nightwatch-json"><span class="toc-text">配置文件：nighewatch.conf.js 或nightwatch.json</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Selenium设置"><span class="toc-text">Selenium设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Test-settings设置"><span class="toc-text">Test settings设置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写用例"><span class="toc-text">编写用例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与mocha搭配使用"><span class="toc-text">与mocha搭配使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单页面测试配置"><span class="toc-text">单页面测试配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#karma"><span class="toc-text">karma</span></a>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        前端工程单元测试和功能测试
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2017-02-17 21:25:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/blog/tags/#nodejs" title="nodejs">nodejs</a>
+        <span>/</span>
+        
+        <a class="tag" href="/blog/tags/#js" title="js">js</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>keyword: mocha, nightmare, nightwatch</p>
+<hr>
+<h3 id="Web-应用越来越复杂，意味着更可能出错。测试是提高代码质量、降低错误的最好方法之一。"><a href="#Web-应用越来越复杂，意味着更可能出错。测试是提高代码质量、降低错误的最好方法之一。" class="headerlink" title="Web 应用越来越复杂，意味着更可能出错。测试是提高代码质量、降低错误的最好方法之一。"></a>Web 应用越来越复杂，意味着更可能出错。测试是提高代码质量、降低错误的最好方法之一。</h3><ul>
+<li>测试可以确保得到预期结果。</li>
+<li>加快开发速度。</li>
+<li>方便维护。</li>
+<li>提供用法的文档。</li>
+<li>对于长期维护的项目，测试可以减少投入时间，减轻维护难度。</li>
+</ul>
+<h3 id="测试的类型"><a href="#测试的类型" class="headerlink" title="测试的类型"></a>测试的类型</h3><ul>
+<li>单元测试（unit testing）</li>
+<li>功能测试（feature testing）</li>
+<li>集成测试（integration testing）</li>
+<li>端对端测试 (End-to-End testing）</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="以测试为导向的开发模式"><a href="#以测试为导向的开发模式" class="headerlink" title="以测试为导向的开发模式"></a>以测试为导向的开发模式</h3><ul>
+<li>TDD：测试驱动的开发（Test-Driven Development）</li>
+<li>BDD：行为驱动的开发（Behavior-Driven Development）<br>它们都要求先写测试，再写代码。</li>
+</ul>
+<p>以上来自阮一峰</p>
+<hr>
+<h1 id="mocha"><a href="#mocha" class="headerlink" title="mocha"></a>mocha</h1><ul>
+<li><a href="http://mochajs.org/" target="_blank" rel="noopener">Mocha</a>是一个测试框架，在浏览器和node环境中都能使用。除了Mocha，类似的测试框架还有Jasmine、Karma、Tape等</li>
+<li>Mocha最好搭配一个断言库来使用，我用的是<a href="http://chaijs.com/" target="_blank" rel="noopener">chai</a></li>
+</ul>
+<h2 id="动手"><a href="#动手" class="headerlink" title="动手"></a>动手</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install mocha --global</span><br><span class="line">npm install mocha,chai --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>现有一个待测试的函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = test;</span><br></pre></td></tr></table></figure>
+
+<p>编写测试脚本：通常，测试脚本与所要测试的源码脚本同名，但是后缀名为.test.js（表示测试）或者.spec.js（表示规格）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a.test.js</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'a.js'</span>),</span><br><span class="line">expert = <span class="built_in">require</span>(<span class="string">'chai'</span>).expert,</span><br><span class="line">should = <span class="built_in">require</span>(<span class="string">'chai'</span>).should(),</span><br><span class="line">assert = <span class="built_in">require</span>(<span class="string">'chai'</span>).assert;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">'a函数的测试'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    it(<span class="string">'a函数返回1'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        expect(a()).to.be.equal(<span class="number">1</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    it(<span class="string">'a函数返回1'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        a().should.equal(<span class="number">1</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    it(<span class="string">'a函数返回1'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        assert.equal(a(),<span class="number">1</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面这段代码，就是测试脚本，它可以独立执行。测试脚本里面应该包括一个或多个describe块，每个describe块应该包括一个或多个it块。<br>describe块称为”测试套件”（test suite），表示一组相关的测试。它是一个函数，第一个参数是测试套件的名称，第二个参数是一个实际执行的函数。<br>it块称为”测试用例”（test case），表示一个单独的测试，是测试的最小单位。它也是一个函数，第一个参数是测试用例的名称，第二个参数是一个实际执行的函数。</p>
+<p><code>expect(add(1, 1)).to.be.equal(2);</code>是一句断言。所谓”断言”，就是判断源码的实际执行结果与预期结果是否一致，如果不一致就抛出一个错误。上面这句断言的意思是，调用add(1, 1)，结果应该等于2。<br>所有的测试用例（it块）都应该含有一句或多句的断言。它是编写测试用例的关键。断言功能由断言库来实现，Mocha本身不带断言库，所以必须先引入断言库。</p>
+<p>如果断言不成立，就会抛出一个错误。事实上，只要不抛出错误，测试用例就算通过。<br>上面代码用到chai的export、should和assert三种断言风格，读者可依据自己喜好随意选择。</p>
+<h2 id="mocha-命令行参数"><a href="#mocha-命令行参数" class="headerlink" title="mocha 命令行参数"></a>mocha 命令行参数</h2><ul>
+<li>–help或-h参数，用来查看Mocha的所有命令行参数。</li>
+<li>–reporter，-R 参数用来指定测试报告的格式，默认是spec格式。</li>
+<li>–reporters参数可以显示所有内置的报告格式。</li>
+<li>–watch，-w 参数用来监视指定的测试脚本。只要测试脚本有变化，就会自动运行Mocha。</li>
+<li>–bail，-b 参数指定只要有一个测试用例没有通过，就停止执行后面的测试用例。这对持续集成很有用。</li>
+<li>–grep，-g 参数用于搜索测试用例的名称（即it块的第一个参数），然后只执行匹配的测试用例。</li>
+<li>–invert，-i 参数表示只运行不符合条件的测试脚本，必须与–grep参数配合使用。<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2>如果测试脚本是用ES6写的，那么运行测试之前，需要先用Babel转码。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-core babel-preset-es2015 --save-dev</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>然后，在项目目录下面，新建一个.babelrc配置文件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [ <span class="string">"es2015"</span> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后，使用–compilers参数指定测试脚本的转码器。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">../node_modules/mocha/bin/mocha  --compilers js:babel-core/register</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，–compilers参数后面紧跟一个用冒号分隔的字符串，冒号左边是文件的后缀名，右边是用来处理这一类文件的模块名。上面代码表示，运行测试之前，先用babel-core/register模块，处理一下.js文件。由于这里的转码器安装在项目内，所以要使用项目内安装的Mocha；如果转码器安装在全局，就可以使用全局的Mocha。<br>注意，Babel默认不会对Iterator、Generator、Promise、Map、Set等全局对象，以及一些全局对象的方法（比如Object.assign）转码。如果你想要对这些对象转码，就要安装babel-polyfill。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install babel-polyfill --save</span><br></pre></td></tr></table></figure>
+
+<p>然后，在你的脚本头部加上一行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'babel-polyfill'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试用例的钩子"><a href="#测试用例的钩子" class="headerlink" title="测试用例的钩子"></a>测试用例的钩子</h2><p>Mocha在describe块之中，提供测试用例的四个钩子：before()、after()、beforeEach()和afterEach()。它们会在指定时间执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">'hooks'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在本区块的所有测试用例之前执行</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  after(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在本区块的所有测试用例之后执行</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  beforeEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在本区块的每个测试用例之前执行</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  afterEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在本区块的每个测试用例之后执行</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// test cases</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="浏览器测试"><a href="#浏览器测试" class="headerlink" title="浏览器测试"></a>浏览器测试</h2><p>除了在命令行运行，Mocha还可以在浏览器运行。<br>首先，使用<code>mocha init</code>命令在指定目录生成初始化文件。<br>然后，把需要测试的文件如<code>add.js</code>，以及断言库chai.js，加入index.html。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  mocha.setup(<span class="string">'bdd'</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"add.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://chaijs.com/chai.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"tests.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">  mocha.run();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>最后，在<code>tests.js</code>里面写入测试脚本。<br>打开index.html就能看到测试结果。</p>
+<h2 id="生成规格文件"><a href="#生成规格文件" class="headerlink" title="生成规格文件"></a>生成规格文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mocha --recursive -R markdown &gt; spec.md</span><br></pre></td></tr></table></figure>
+
+<p>上面命令根据test目录的所有测试脚本，生成一个规格文件<code>spec.md。-R markdown</code>参数指定规格报告是markdown格式。<br>如果想生成HTML格式的报告spec.html，使用下面的命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mocha --recursive -R doc &gt; spec.html</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Nightmare"><a href="#Nightmare" class="headerlink" title="Nightmare"></a>Nightmare</h1><p>  <a href="http://www.nightmarejs.org/" target="_blank" rel="noopener">nightmare</a>是一个基于phantomjs的测试框架一个基于phantomjs之上为测试应用封装的一套high level API。其API以goto, refresh, click, type…等简单的常用e2e测试动作封装，使得其语义清晰，简洁。</p>
+<h2 id="动手-1"><a href="#动手-1" class="headerlink" title="动手"></a>动手</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Linux &amp; Mac</span></span><br><span class="line">$ env ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line">$ <span class="built_in">set</span> ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>注意，Nightmare 会先安装 Electron，而 Electron 的安装需要下载境外的包，有时会连不上，导致安装失败。所以，这里先设置了环境变量，指定使用国内的 Electron 源，然后才执行安装命令。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Nightmare = <span class="built_in">require</span>(<span class="string">'nightmare'</span>);</span><br><span class="line"><span class="keyword">var</span> nightmare = Nightmare(&#123; <span class="attr">show</span>: <span class="literal">true</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示新建一个 Nightmare 实例，并且运行功能中，自动打开浏览器窗口。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">nightmare</span><br><span class="line">  .goto(<span class="string">'https://www.taobao.com/'</span>)</span><br><span class="line">  .type(<span class="string">'#q'</span>, <span class="string">'电视机'</span>)</span><br><span class="line">  .click(<span class="string">'form[action*="/search"] [type=submit]'</span>)</span><br><span class="line">  .wait(<span class="string">'#spulist-grid'</span>)</span><br><span class="line">  .evaluate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.querySelector(<span class="string">'#spulist-grid .grid-item .info-cont'</span>)</span><br><span class="line">      .textContent.trim();</span><br><span class="line">  &#125;)</span><br><span class="line">  .end()</span><br></pre></td></tr></table></figure>
+
+<p>上面代码表示，打开淘宝首页，在搜索框键入<code>电视机</code>，点击”搜索“按钮，等待<code>#spulist-grid</code>元素出现，在页面内注入（<code>evaluate</code>）代码，将执行结果返回。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.then(<span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(result);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.error(<span class="string">'Search failed:'</span>, error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Nightmare 会返回一个 Promise 对象，<code>then</code>方法指定操作成功的回调函数，<code>catch</code>方法指定操作失败的回调函数。</p>
+<h3 id="结合mocha"><a href="#结合mocha" class="headerlink" title="结合mocha"></a>结合mocha</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Nightmare = <span class="built_in">require</span>(<span class="string">'nightmare'</span>);</span><br><span class="line"><span class="keyword">var</span> expect = <span class="built_in">require</span>(<span class="string">'chai'</span>).expect;</span><br><span class="line"><span class="keyword">var</span> fork = <span class="built_in">require</span>(<span class="string">'child_process'</span>).fork;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">'test index.html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> child;</span><br><span class="line"></span><br><span class="line">  before(<span class="function"><span class="keyword">function</span> (<span class="params">done</span>) </span>&#123;</span><br><span class="line">    child = fork(<span class="string">'./server.js'</span>);</span><br><span class="line">    child.on(<span class="string">'message'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (msg === <span class="string">'listening'</span>) &#123;</span><br><span class="line">        done();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  after(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    child.kill();</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'点击后标题改变'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">done</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> nightmare = Nightmare(&#123; <span class="attr">show</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">    nightmare</span><br><span class="line">      .goto(<span class="string">'http://127.0.0.1:8080/index.html'</span>)</span><br><span class="line">      .click(<span class="string">'h1'</span>)</span><br><span class="line">      .wait(<span class="number">1000</span>)</span><br><span class="line">      .evaluate(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">document</span>.querySelector(<span class="string">'h1'</span>).textContent;</span><br><span class="line">      &#125;)</span><br><span class="line">      .end()</span><br><span class="line">      .then(<span class="function"><span class="keyword">function</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">        expect(text).to.equal(<span class="string">'Hello Clicked'</span>);</span><br><span class="line">        done();</span><br><span class="line">      &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//子进程脚本server.js</span></span><br><span class="line"><span class="keyword">var</span> httpServer = <span class="built_in">require</span>(<span class="string">'http-server'</span>);</span><br><span class="line"><span class="keyword">var</span> server = httpServer.createServer();</span><br><span class="line">server.listen(<span class="number">8080</span>);</span><br><span class="line">process.send(<span class="string">'listening'</span>);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="nightwatch"><a href="#nightwatch" class="headerlink" title="nightwatch"></a>nightwatch</h1><p><a href="http://nightwatchjs.org/" target="_blank" rel="noopener">nightwatch</a>与nightmare相似，都用于做端对端（e2e）测试。因为在vue-cli中使用的是nightwatch，所以一并介绍。</p>
+<blockquote>
+<p>Nightwatch是一套新近问世的基于Node.js的验收测试框架，使用Selenium WebDriver API以将Web应用测试自动化。它提供了简单的语法，支持使用JavaScript和CSS选择器，来编写运行在Selenium服务器上的端到端测试。</p>
+</blockquote>
+<p>目前，Selenium是JavaScript的世界里验收测试方面最流行的工具之一，类似的还有PhantomJS。二者都有其独到的方法：Selenium使用其WebDriver API，而PhantomJS使用无界面的WebKit浏览器。它们都是非常成熟的工具，都具有强大的社区支持。它们与Nightwatch之间最大的不同，主要是在于语法的简易度以及对持续集成的支持。与Nightwatch相比，Selenium和PhantomJS都拥有更加冗长的语法，这会让编码变得更庞大，而且不支持从命令行中进行开箱即用的持续集成（JUnit XML或其他标准输出）。</p>
+<p>不同于行为驱动测试（BDD）和单元测试独立运行并使用模拟/存根，端到端测试将试着尽可能从用户的视角，对真实系统的访问行为进行仿真。对Web应用来说，这意味着需要打开浏览器、加载页面、运行JavaScript，以及进行与DOM交互等操作。</p>
+<h2 id="动手-2"><a href="#动手-2" class="headerlink" title="动手"></a>动手</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install [-g] nightwatch</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置文件：nighewatch-conf-js-或nightwatch-json"><a href="#配置文件：nighewatch-conf-js-或nightwatch-json" class="headerlink" title="配置文件：nighewatch.conf.js 或nightwatch.json"></a>配置文件：<code>nighewatch.conf.js</code> 或<code>nightwatch.json</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"src_folders"</span> : [<span class="string">"tests"</span>], <span class="comment">//测试文件存放地址</span></span><br><span class="line">  <span class="string">"output_folder"</span> : <span class="string">"reports"</span>, <span class="comment">//生成JUnit XML 测试报告保存地址</span></span><br><span class="line">  <span class="string">"custom_commands_path"</span> : <span class="string">""</span>,</span><br><span class="line">  <span class="string">"custom_assertions_path"</span> : <span class="string">""</span>,</span><br><span class="line">  <span class="string">"page_objects_path"</span> : <span class="string">""</span>,</span><br><span class="line">  <span class="string">"globals_path"</span> : <span class="string">""</span>, <span class="comment">//外部全局扩展地址，能在test_settings中重新定义覆盖</span></span><br><span class="line"></span><br><span class="line">  <span class="string">"selenium"</span> : &#123;  <span class="comment">//selenium 配置</span></span><br><span class="line">    <span class="string">"start_process"</span> : <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"server_path"</span> : <span class="string">""</span>,</span><br><span class="line">    <span class="string">"log_path"</span> : <span class="string">""</span>,</span><br><span class="line">    <span class="string">"port"</span> : <span class="number">4444</span>,</span><br><span class="line">    <span class="string">"cli_args"</span> : &#123;</span><br><span class="line">      <span class="string">"webdriver.chrome.driver"</span> : <span class="string">""</span>,</span><br><span class="line">      <span class="string">"webdriver.gecko.driver"</span> : <span class="string">""</span>,</span><br><span class="line">      <span class="string">"webdriver.edge.driver"</span> : <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="string">"test_settings"</span> : &#123; <span class="comment">//所有测试选项</span></span><br><span class="line">    <span class="string">"default"</span> : &#123;</span><br><span class="line">      <span class="string">"launch_url"</span> : <span class="string">"http://localhost"</span>,</span><br><span class="line">      <span class="string">"selenium_port"</span>  : <span class="number">4444</span>,</span><br><span class="line">      <span class="string">"selenium_host"</span>  : <span class="string">"localhost"</span>,</span><br><span class="line">      <span class="string">"silent"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="string">"globals"</span> : &#123;</span><br><span class="line">        <span class="string">"myGlobalVar"</span> : <span class="string">"some value"</span>,</span><br><span class="line">        <span class="string">"otherGlobal"</span> : <span class="string">"some other value"</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="string">"screenshots"</span> : &#123;</span><br><span class="line">        <span class="string">"enabled"</span> : <span class="literal">false</span>,</span><br><span class="line">        <span class="string">"path"</span> : <span class="string">""</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">"desiredCapabilities"</span>: &#123; <span class="comment">//传给selenium的浏览器驱动</span></span><br><span class="line">        <span class="string">"browserName"</span>: <span class="string">"firefox"</span>,</span><br><span class="line">        <span class="string">"marionette"</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="string">"chrome"</span> : &#123;</span><br><span class="line">      <span class="string">"desiredCapabilities"</span>: &#123;</span><br><span class="line">        <span class="string">"browserName"</span>: <span class="string">"chrome"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="string">"edge"</span> : &#123;</span><br><span class="line">      <span class="string">"desiredCapabilities"</span>: &#123;</span><br><span class="line">        <span class="string">"browserName"</span>: <span class="string">"MicrosoftEdge"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其余配置项：</p>
+<ul>
+<li><p>live_output:boolean————Whether or not to buffer the output in case of parallel running. See below for details.</p>
+</li>
+<li><p>disable_colors:boolean————Controls whether or not to disable coloring of the cli output globally.</p>
+</li>
+<li><p>parallel_process_delay:integer————Specifies the delay(in milliseconds) between starting the child processes when running in parallel mode.</p>
+</li>
+<li><p>test_workers:boolean|object————Whether or not to run individual test files in parallel. If set to true, runs the tests in parallel and determines the number of workers automatically.<br>If set to an object, can specify specify the number of workers as “auto” or a number.Example: <code>&quot;test_workers&quot; : {&quot;enabled&quot; : true, &quot;workers&quot; : &quot;auto&quot;}</code>  </p>
+</li>
+<li><p>test_runner：string|object ————Specifies which test runner to use when running the tests. Values can be either default (built in nightwatch runner) or mocha.Example: <code>&quot;test_runner&quot; : {&quot;type&quot; : &quot;mocha&quot;, &quot;options&quot; : {&quot;ui&quot; : &quot;tdd&quot;}}</code></p>
+</li>
+</ul>
+<h4 id="Selenium设置"><a href="#Selenium设置" class="headerlink" title="Selenium设置"></a>Selenium设置</h4><p>Nightwatch 能自动开启和停止Selenium进程，所以不用过多关注这一项。<br>If you’d like to enable this, set start_process to true and specify the location of the jar file inside server_path.<br>如果不想开启这项功能，设置start_process为true并且在server_path中指定selenium 的jar文件详细目录，例如： bin/selenium-server-standalone-2.43.0.jar</p>
+<p>还有日志存放目录、监听端口、cli参数配置不多介绍</p>
+<h4 id="Test-settings设置"><a href="#Test-settings设置" class="headerlink" title="Test settings设置"></a>Test settings设置</h4><p>default为必须，其他都是从此继承而来</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nightwatch --env chrome</span><br></pre></td></tr></table></figure>
+
+<p>即执行到chrome里的配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">'Demo test'</span> : <span class="function"><span class="keyword">function</span> (<span class="params">browser</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(browser.globals);</span><br><span class="line">      <span class="comment">// &#123;</span></span><br><span class="line">      <span class="comment">//   "myGlobalVar" : "some value",</span></span><br><span class="line">      <span class="comment">//   "otherGlobal" : "some other value"</span></span><br><span class="line">      <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    browser</span><br><span class="line">      .url(browser.launchUrl)</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">      .end();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>以上是.test.js中的部分代码，用来说明配置关系。</p>
+<p>还有其他详细配置，太长不看。</p>
+<h3 id="编写用例"><a href="#编写用例" class="headerlink" title="编写用例"></a>编写用例</h3><p>一个基本的测试文件如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  &apos;Demo test Google&apos; : function (browser) &#123;</span><br><span class="line">    browser</span><br><span class="line">      .url(&apos;http://www.google.com&apos;)</span><br><span class="line">      .waitForElementVisible(&apos;body&apos;, 1000)</span><br><span class="line">      .setValue(&apos;input[type=text]&apos;, &apos;nightwatch&apos;)</span><br><span class="line">      .waitForElementVisible(&apos;button[name=btnG]&apos;, 1000)</span><br><span class="line">      .click(&apos;button[name=btnG]&apos;)</span><br><span class="line">      .pause(1000)</span><br><span class="line">      .assert.containsText(&apos;#main&apos;, &apos;Night Watch&apos;)</span><br><span class="line">      .end();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>调用<code>.end()</code>来关闭Selenium会话</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">'step one'</span> : <span class="function"><span class="keyword">function</span> (<span class="params">browser</span>) </span>&#123;</span><br><span class="line">    browser</span><br><span class="line">      .url(<span class="string">'http://www.google.com'</span>)</span><br><span class="line">      .waitForElementVisible(<span class="string">'body'</span>, <span class="number">1000</span>)</span><br><span class="line">      .setValue(<span class="string">'input[type=text]'</span>, <span class="string">'nightwatch'</span>)</span><br><span class="line">      .waitForElementVisible(<span class="string">'button[name=btnG]'</span>, <span class="number">1000</span>)</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="string">'step two'</span> : <span class="function"><span class="keyword">function</span> (<span class="params">browser</span>) </span>&#123;</span><br><span class="line">    browser</span><br><span class="line">      .click(<span class="string">'button[name=btnG]'</span>)</span><br><span class="line">      .pause(<span class="number">1000</span>)</span><br><span class="line">      .assert.containsText(<span class="string">'#main'</span>, <span class="string">'Night Watch'</span>)</span><br><span class="line">      .end();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>多个步骤的test</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  before : <span class="function"><span class="keyword">function</span>(<span class="params">browser</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Setting up...'</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  after : <span class="function"><span class="keyword">function</span>(<span class="params">browser，done</span>) </span>&#123;</span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          done()</span><br><span class="line">      &#125;,<span class="number">0</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">'Demo test Google'</span> : <span class="function"><span class="keyword">function</span> (<span class="params">client</span>) </span>&#123;</span><br><span class="line">    client</span><br><span class="line">      .url(<span class="string">'http://google.no'</span>)</span><br><span class="line">      .pause(<span class="number">1000</span>);</span><br><span class="line">    <span class="comment">// expect element  to be present in 1000ms</span></span><br><span class="line">    client.expect.element(<span class="string">'body'</span>).to.be.present.before(<span class="number">1000</span>);</span><br><span class="line">    <span class="comment">// expect element &lt;#lst-ib&gt; to have css property 'display'</span></span><br><span class="line">    client.expect.element(<span class="string">'#lst-ib'</span>).to.have.css(<span class="string">'display'</span>);</span><br><span class="line">    <span class="comment">// expect element  to have attribute 'class' which contains text 'vasq'</span></span><br><span class="line">    client.expect.element(<span class="string">'body'</span>).to.have.attribute(<span class="string">'class'</span>).which.contains(<span class="string">'vasq'</span>);</span><br><span class="line">    <span class="comment">// expect element &lt;#lst-ib&gt; to be an input tag</span></span><br><span class="line">    client.expect.element(<span class="string">'#lst-ib'</span>).to.be.an(<span class="string">'input'</span>);</span><br><span class="line">    <span class="comment">// expect element &lt;#lst-ib&gt; to be visible</span></span><br><span class="line">    client.expect.element(<span class="string">'#lst-ib'</span>).to.be.visible;</span><br><span class="line">    client.end();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>expect的原型是来自chai的expect接口<br>同样拥有before[Each] and after[Each]钩子<br>异步操作使用回调函数来完成执行。如上面的done()</p>
+<ul>
+<li>Api接口<br><a href="http://nightwatchjs.org/api" target="_blank" rel="noopener">接口</a>大致分为如下四类<ol>
+<li>expect 如 browser.expect.element(‘#main’).text.to.equal(‘The Night Watch’);</li>
+<li>assert</li>
+<li>操作命令 如 client.click(“#main ul li a.first”);</li>
+<li>浏览器驱动的协议 如： browser.url(‘<a href="http://localhost&#39;" target="_blank" rel="noopener">http://localhost&#39;</a>);</li>
+</ol>
+</li>
+</ul>
+<h3 id="与mocha搭配使用"><a href="#与mocha搭配使用" class="headerlink" title="与mocha搭配使用"></a>与mocha搭配使用</h3><p>首先在nightwatch.json文件中添加：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">"test_runner"</span> : <span class="string">"mocha"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个标准的与mocha搭配的测试文件应该如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nightwatch = <span class="built_in">require</span>(<span class="string">'nightwatch'</span>);</span><br><span class="line"></span><br><span class="line">describe(<span class="string">'Github'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> client = nightwatch.initClient(&#123;</span><br><span class="line">    silent : <span class="literal">true</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> browser = client.api();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.timeout(<span class="number">99999999</span>);</span><br><span class="line"></span><br><span class="line">  before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    browser.perform(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'beforeAll'</span>)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  beforeEach(<span class="function"><span class="keyword">function</span>(<span class="params">done</span>) </span>&#123;</span><br><span class="line">    browser.perform(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'beforeEach'</span>)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    client.start(done);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(<span class="string">'Demo test GitHub'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">done</span>) </span>&#123;</span><br><span class="line">    browser</span><br><span class="line">      .url(<span class="string">'https://github.com/nightwatchjs/nightwatch'</span>)</span><br><span class="line">      .waitForElementVisible(<span class="string">'body'</span>, <span class="number">5000</span>)</span><br><span class="line">      .assert.title(<span class="string">'nightwatchjs/nightwatch · GitHub'</span>)</span><br><span class="line">      .waitForElementVisible(<span class="string">'body'</span>, <span class="number">1000</span>)</span><br><span class="line">      .assert.visible(<span class="string">'.container .breadcrumb a span'</span>)</span><br><span class="line">      .assert.containsText(<span class="string">'.container .breadcrumb a span'</span>, <span class="string">'nightwatch'</span>, <span class="string">'Checking project title is set to nightwatch'</span>);</span><br><span class="line"></span><br><span class="line">    client.start(done);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  afterEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    browser.perform(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'afterEach'</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  after(<span class="function"><span class="keyword">function</span>(<span class="params">done</span>) </span>&#123;</span><br><span class="line">    browser.end(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'afterAll'</span>)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    client.start(done);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="单页面测试配置"><a href="#单页面测试配置" class="headerlink" title="单页面测试配置"></a>单页面测试配置</h3><p>可以通过配置nightwatch.js中<code>page_objects_path</code>来实现</p>
+<p>page_object.js：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//google.js</span></span><br><span class="line"><span class="keyword">var</span> googleCommands = &#123;</span><br><span class="line">  submit: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.api.pause(<span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.waitForElementVisible(<span class="string">'@submitButton'</span>, <span class="number">1000</span>)</span><br><span class="line">      .click(<span class="string">'@submitButton'</span>)</span><br><span class="line">      .waitForElementNotPresent(<span class="string">'@submitButton'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  commands: [googleCommands],</span><br><span class="line">  elements: &#123;</span><br><span class="line">    searchBar: &#123;</span><br><span class="line">      selector: <span class="string">'input[type=text]'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    submitButton: &#123;</span><br><span class="line">      selector: <span class="string">'button[name=btnG]'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>test.js就可以变为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">'Test'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">client</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> google = client.page.google();</span><br><span class="line">    google.setValue(<span class="string">'@searchBar'</span>, <span class="string">'nightwatch'</span>)</span><br><span class="line">      .submit();</span><br><span class="line"></span><br><span class="line">    client.end();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>还可以定义elements和sections</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sharedElements = &#123;</span><br><span class="line">  mailLink: <span class="string">'a[href*="mail.google.com"]'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  elements: [</span><br><span class="line">    sharedElements,</span><br><span class="line">    &#123; <span class="attr">searchBar</span>: <span class="string">'input[type=text]'</span> &#125;</span><br><span class="line">  ],</span><br><span class="line">  sections: &#123;</span><br><span class="line">      menu: &#123;</span><br><span class="line">        selector: <span class="string">'#gb'</span>,</span><br><span class="line">        elements: &#123;</span><br><span class="line">          mail: &#123;</span><br><span class="line">            selector: <span class="string">'a[href="mail"]'</span></span><br><span class="line">          &#125;,</span><br><span class="line">          images: &#123;</span><br><span class="line">            selector: <span class="string">'a[href="imghp"]'</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        sections: &#123;</span><br><span class="line">          apps: &#123;</span><br><span class="line">            selector: <span class="string">'div.gb_pc'</span>,</span><br><span class="line">            elements: &#123;</span><br><span class="line">              myAccount: &#123;</span><br><span class="line">                selector: <span class="string">'#gb192'</span></span><br><span class="line">              &#125;,</span><br><span class="line">              googlePlus: &#123;</span><br><span class="line">                selector: <span class="string">'#gb119'</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//test.js中</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">'Test'</span>: <span class="function"><span class="keyword">function</span> (<span class="params">client</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> google = client.page.google();</span><br><span class="line">    google.expect.section(<span class="string">'@menu'</span>).to.be.visible;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> menuSection = google.section.menu;</span><br><span class="line">    <span class="keyword">var</span> appSection = menuSection.section.apps;</span><br><span class="line">    menuSection.click(<span class="string">'@appSection'</span>);</span><br><span class="line"></span><br><span class="line">    appSection.expect.element(<span class="string">'@myAccount'</span>).to.be.visible;</span><br><span class="line">    appSection.expect.element(<span class="string">'@googlePlus'</span>).to.be.visible;</span><br><span class="line"></span><br><span class="line">    client.end();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>自此，终于可以结合vue代码写出一个完整的测试用例啦<del>~</del></p>
+<p>话不多说，试着撸代码去了。</p>
+<h1 id="karma"><a href="#karma" class="headerlink" title="karma"></a>karma</h1><p>Karma是一个测试任务管理工具，可以很容易和Jasmine、Mocha等市面上常用的测试框架打通，通过其插件可以快速集成到各种环境中。例如：本地环境、持续集成环境。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/blog/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/blog/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+
+    <title>
+        
+        vue.js的一次实践 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/blog/css/aircloud.css">
+    <link rel="stylesheet" href="/blog/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/blog/images/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>zaber</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/blog/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+
+            <!--
+            <li >
+                <a href="/blog/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            -->
+            <li >
+                <a href="/blog/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <!--
+
+            <li >
+                <a href="/blog/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            -->
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录结构："><span class="toc-text">目录结构：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据需求修改脚手架："><span class="toc-text">根据需求修改脚手架：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码逻辑层"><span class="toc-text">代码逻辑层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于单元测试"><span class="toc-text">关于单元测试</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        vue.js的一次实践
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2017-02-10 21:25:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/blog/tags/#js" title="js">js</a>
+        <span>/</span>
+        
+        <a class="tag" href="/blog/tags/#vue" title="vue">vue</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>keyword：nodejs，webpack，vue-cli，vue-router，vue-resource，vuex，vux</p>
+<p>首先假装自己已经熟悉了nodejs和webpack的基本使用方法</p>
+<a id="more"></a>
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li><p>安装vue</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-cli -g</span><br><span class="line">vue init webpack projectname</span><br><span class="line"><span class="built_in">cd</span> projectname</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装其他依赖</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router, vue-resource, vuex, vux, vux-loader, vuex-i18n --save</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="目录结构："><a href="#目录结构：" class="headerlink" title="目录结构："></a>目录结构：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">project</span><br><span class="line">│  .babelrc</span><br><span class="line">│  .editorconfig</span><br><span class="line">│  .eslintignore</span><br><span class="line">│  .eslintrc.js</span><br><span class="line">│  .gitignore</span><br><span class="line">│  index.html</span><br><span class="line">│  package.json</span><br><span class="line">│  README.md</span><br><span class="line">│  </span><br><span class="line">├─build</span><br><span class="line">│      build.js</span><br><span class="line">│      check-versions.js</span><br><span class="line">│      dev-client.js</span><br><span class="line">│      dev-server.js</span><br><span class="line">│      utils.js</span><br><span class="line">│      vue-loader.conf.js</span><br><span class="line">│      webpack.base.conf.js</span><br><span class="line">│      webpack.dev.conf.js</span><br><span class="line">│      webpack.prod.conf.js</span><br><span class="line">│      webpack.test.conf.js</span><br><span class="line">│      </span><br><span class="line">├─config</span><br><span class="line">│      dev.env.js</span><br><span class="line">│      index.js</span><br><span class="line">│      prod.env.js</span><br><span class="line">│      test.env.js</span><br><span class="line">│      </span><br><span class="line">├─src</span><br><span class="line">│  │  App.vue</span><br><span class="line">│  │  main.js</span><br><span class="line">│  │  </span><br><span class="line">│  ├─assets</span><br><span class="line">│  │      logo.png</span><br><span class="line">│  │      </span><br><span class="line">│  ├─components</span><br><span class="line">│  │      Hello.vue</span><br><span class="line">│  │      </span><br><span class="line">│  └─router</span><br><span class="line">│          index.js</span><br><span class="line">│          </span><br><span class="line">├─static</span><br><span class="line">│      .gitkeep</span><br><span class="line">│      </span><br><span class="line">└─test</span><br><span class="line">    ├─e2e</span><br><span class="line">    │  │  nightwatch.conf.js</span><br><span class="line">    │  │  runner.js</span><br><span class="line">    │  │  </span><br><span class="line">    │  ├─custom-assertions</span><br><span class="line">    │  │      elementCount.js</span><br><span class="line">    │  │      </span><br><span class="line">    │  └─specs</span><br><span class="line">    │          test.js</span><br><span class="line">    │          </span><br><span class="line">    └─unit</span><br><span class="line">        │  .eslintrc</span><br><span class="line">        │  index.js</span><br><span class="line">        │  karma.conf.js</span><br><span class="line">        │  </span><br><span class="line">        └─specs</span><br><span class="line">                Hello.spec.js</span><br></pre></td></tr></table></figure>
+
+<h3 id="根据需求修改脚手架："><a href="#根据需求修改脚手架：" class="headerlink" title="根据需求修改脚手架："></a>根据需求修改脚手架：</h3><ul>
+<li><p>引入vux和vux-loader：vux2必须配合vux-loader使用, 在build/webpack.base.conf.js里参照如下代码进行配置：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vuxLoader = <span class="built_in">require</span>(<span class="string">'vux-loader'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = vuxLoader.merge(webpackConfig, &#123;</span><br><span class="line">  options: &#123;&#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'vux-ui'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'less-theme'</span>,</span><br><span class="line">      path: <span class="string">'src/styles/theme.less'</span>    <span class="comment">//vux自定义主题文件</span></span><br><span class="line">    &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>vux部分组件用到i18n函数，如toast,故引入vuex-i18n；</p>
+<blockquote>
+<p>该插件通过$t()方法的使用易于访问本地化信息。<br>  这个插件将会在当前定义的区域中寻找将给定的字符串作为key，并返回相应的翻译。如果没有找到字符串，它将返回。</p>
+</blockquote>
+<p>  在入口文件添加：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></span><br><span class="line"><span class="keyword">import</span> vuexI18n <span class="keyword">from</span> <span class="string">'vuex-i18n'</span></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"><span class="comment">// const debug = process.env.NODE_ENV !== 'production'</span></span><br><span class="line"><span class="keyword">let</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    i18n: vuexI18n.store,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// strict: debug,</span></span><br><span class="line">&#125;)</span><br><span class="line">Vue.use(vuexI18n.plugin, store)</span><br><span class="line">Vue.i18n.set(<span class="string">'zh-CN'</span>)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置开发代理服务器：</p>
+</li>
+</ul>
+<p>修改config/index.js文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">proxyTable</span>: &#123;</span><br><span class="line">      <span class="string">'/api'</span>: &#123;</span><br><span class="line">        target: <span class="string">'http://localhost:9000'</span>,</span><br><span class="line">        changeOrigin: <span class="literal">true</span>,</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">'/api'</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样在请求 ‘/api/xxx’的时候会被代理到’localhost:9000/api/xxx’，用来解决本地node起的服务器取接口数据的跨域问题。</p>
+<ul>
+<li><p>配置多入口：</p>
+<p>  项目需求多入口，分模块。</p>
+<ul>
+<li><p>首先在build/utils.js 下添加：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> glob = <span class="built_in">require</span>(<span class="string">'glob'</span>);</span><br><span class="line">exports.getEntries = <span class="function"><span class="keyword">function</span> (<span class="params">globPath</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> entries = &#123;&#125;</span><br><span class="line">  glob.sync(globPath).forEach(<span class="function"><span class="keyword">function</span> (<span class="params">entry</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tmp = entry.split(<span class="string">'/'</span>).splice(<span class="number">-3</span>)</span><br><span class="line">    <span class="keyword">var</span> moduleName = tmp.slice(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">    entries[moduleName] = entry</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> entries;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  获取入口的函数   </p>
+</li>
+<li><p>接着在build/webpack.dev.conf.js和build/webpack.prod.conf.js中先把<code>new HtmlWebpackPlugin()</code>删掉，然后添加：</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> pages = utils.getEntries(<span class="string">'./src/module/**/*.html'</span>)</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> page <span class="keyword">in</span> pages) &#123;</span><br><span class="line">  <span class="comment">// 配置生成的html文件，定义路径等</span></span><br><span class="line">  <span class="keyword">var</span> conf = &#123;</span><br><span class="line">    filename: page + <span class="string">'.html'</span>,</span><br><span class="line">    template: pages[page], <span class="comment">//模板路径</span></span><br><span class="line">    inject: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// excludeChunks 允许跳过某些chunks, 而chunks告诉插件要引用entry里面的哪几个入口            //即去除名字与html不一样的js;</span></span><br><span class="line">    <span class="comment">// 即去除名字与html不一样的js;</span></span><br><span class="line">    excludeChunks: <span class="built_in">Object</span>.keys(pages).filter(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> (item != page)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 需要生成几个html文件，就配置几个HtmlWebpackPlugin对象</span></span><br><span class="line">  <span class="built_in">module</span>.exports.plugins.push(<span class="keyword">new</span> HtmlWebpackPlugin(conf))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ul>
+<p>至此，脚手架就搭建完成</p>
+<hr>
+<h3 id="代码逻辑层"><a href="#代码逻辑层" class="headerlink" title="代码逻辑层"></a>代码逻辑层</h3><ul>
+<li><p>关于vue-router，应该抛开原先写后端的mvc模式，思维不能太僵化。个人的实践如下：</p>
+<p>  在<code>router.js</code>中</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> routers = &#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      redirect: <span class="string">'/index/index'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/tool'</span>,</span><br><span class="line">      name: <span class="string">'Tool'</span>,</span><br><span class="line">      component: Tool</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/index'</span>,</span><br><span class="line">      name: <span class="string">'Index'</span>,</span><br><span class="line">      component: IndexMain,</span><br><span class="line">      children:[&#123;</span><br><span class="line">        path:<span class="string">'index'</span>,</span><br><span class="line">        component:Index,</span><br><span class="line">          children:[&#123;</span><br><span class="line">            path:<span class="string">'a'</span>,</span><br><span class="line">            component:a</span><br><span class="line">    &#125;]</span><br><span class="line">      &#125;,&#123;</span><br><span class="line">        path:<span class="string">'status/:id'</span>,</span><br><span class="line">        component:Status</span><br><span class="line">      &#125;,]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/login'</span>,</span><br><span class="line">      name: <span class="string">'login'</span>,</span><br><span class="line">      component: login</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  并且在<code>App.vue</code>中页面保持纯净：</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  通过路由嵌套来一层层加载组件；如<br>  <code>index.vue</code></p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">top-header</span>&gt;</span><span class="tag">&lt;/<span class="name">top-header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bottom-menu</span>&gt;</span><span class="tag">&lt;/<span class="name">bottom-menu</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  <code>login.vue</code></p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">box</span> <span class="attr">gap</span>=<span class="string">"10px 10px"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">group</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">x-input</span> <span class="attr">placeholder</span>=<span class="string">"请输入账号"</span> <span class="attr">required</span> <span class="attr">v-model</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">x-input</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">x-input</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span> <span class="attr">required</span> <span class="attr">v-model</span>=<span class="string">"password"</span>&gt;</span><span class="tag">&lt;/<span class="name">x-input</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">group</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">x-button</span> <span class="attr">:text</span>=<span class="string">"buttonText"</span> <span class="attr">:disabled</span>=<span class="string">"buttonDisable"</span> @<span class="attr">click.native</span>=<span class="string">"test"</span> <span class="attr">type</span>=<span class="string">"primary"</span>&gt;</span><span class="tag">&lt;/<span class="name">x-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">box</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">toast</span> <span class="attr">:text</span>=<span class="string">"toastText"</span> <span class="attr">v-model</span>=<span class="string">"toastShow"</span> <span class="attr">type</span>=<span class="string">"cancel"</span>&gt;</span><span class="tag">&lt;/<span class="name">toast</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  在/index的路由下，有头菜单和下方菜单tab组件，而/login下就是纯净的登录页面，增加了灵活性。</p>
+</li>
+<li><p>还是关于路由，路由实例化最好在main.js下执行而不是单独在router/index.js中。原因是实际项目有可能需要在路由中操作store，<br>如<code>router.beforeEach()</code>中做跳转的动画，单独文件取不到store。</p>
+</li>
+<li><p>关于vuex：</p>
+<blockquote>
+<p>每一个 Vuex 应用的核心就是 store（仓库）。”store” 基本上就是一个容器，它包含着你的应用中大部分的状态(state)。Vuex 和单纯的全局对象有以下两点不同：</p>
+<ol>
+<li>Vuex 的状态存储是响应式的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到高效更新。</li>
+<li>你不能直接改变 store 中的状态。改变 store 中的状态的唯一途径就是显式地提交(commit) mutations。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p>具体使用方法参见：<a href="http://vuex.vuejs.org/zh-cn/" target="_blank" rel="noopener">vuex文档</a></p>
+<p>自此，就可以愉快的开始编写业务代码了。勇敢的少年啊，快去创造奇迹。</p>
+<hr>
+<h3 id="关于单元测试"><a href="#关于单元测试" class="headerlink" title="关于单元测试"></a>关于单元测试</h3><p>我还不懂怎么用。断言库和end2end是什么我根本就不知道。<br>等学完mocha或者karma再补充更新。</p>
+<hr>
+<p>未完待续。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/blog/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/blog/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
